@@ -31,5 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/.mvn/
 /frontend/node_modules/
