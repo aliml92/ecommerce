@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import javax.validation.constraints.NotBlank;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,7 +39,7 @@ public class Product {
     @NotBlank
     private Integer countInStock = 0;
 
-    private List<Review> reviews;
+    private List<Review> reviews = new ArrayList();
     @NotBlank
     private Double rating = 0.0;
     @NotBlank

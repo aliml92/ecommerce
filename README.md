@@ -8,6 +8,9 @@ Demo eCommerce website made with Spring Boot , Mongo, React.js.
 - Administration
 - REST API
 
-See the demo:
--------------------
-http://ec2-3-34-131-98.ap-northeast-2.compute.amazonaws.com:8080/
+## Quick Installation:
+```
+    docker-compose up -d
+    #or
+    docker compose up -d
+```

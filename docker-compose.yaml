@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    hostname: mongo
+    networks:
+      - main-network
+    ports:
+      - 27017:27017
+  mongo_seed:
+    image: mongo
+    volumes:
+      - ./mongo_seed:/mongo_seed
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    command:
+      /mongo_seed/import.sh
+    networks:
+      - main-network
+  ecommerce:
+    image: aliml98/ecommerce
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - main-network
+
+networks:
+  main-network:
+    driver: bridge

@@ -15,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -72,6 +73,8 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable String id){
         Product p = productRepo.findById(id).get();
+        List<Product.Review> r =  new ArrayList<>();
+        p.setReviews(r);
         return ResponseEntity.ok(p);
     }
 
